@@ -10,38 +10,47 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isInitialized, setIsInitialized] = useState(false); // 초기화 상태 추가
 
   useEffect(() => {
+    // [보안/디버깅] 5초 이상 초기화가 안 되면 강제로 로딩을 풉니다.
+    const safetyTimer = setTimeout(() => {
+      if (!isInitialized) {
+        console.warn("⚠️ 인증 초기화가 너무 오래 걸려 강제로 로딩을 해제합니다.");
+        setIsInitialized(true);
+      }
+    }, 5000);
+
     const initAuth = async () => {
+      console.log("🚀 인증 초기화 시작...");
       try {
-        // 1. 현재 세션 확인
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
+        if (sessionError) throw sessionError;
+
         if (session?.user) {
-          // 2. 세션이 있다면 프로필 정보 가져오기
-          const { data: profile } = await supabase
+          const { data: profile, error: profileError } = await supabase
             .from('profiles')
             .select('*')
             .eq('id', session.user.id)
             .single();
-          setUser(profile);
+          
+          if (profileError) console.error("프로필 로드 실패:", profileError);
+          setUser(profile || null);
         }
       } catch (error) {
-        console.error("Auth initialization error:", error);
+        console.error("❌ 인증 과정 중 치명적 에러:", error);
       } finally {
-        // 3. 확인이 끝났으므로 초기화 완료 설정
+        console.log("✅ 인증 초기화 완료");
         setIsInitialized(true);
+        clearTimeout(safetyTimer);
       }
     };
 
     initAuth();
 
-    // 로그인 상태 변경 감지
+    // 상태 변화 감지
     const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log("🔄 Auth State Change:", event);
       if (session?.user) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+        const { data: profile } = await supabase.from('profiles').select('*').eq('id', session.user.id).single();
         setUser(profile);
       } else {
         setUser(null);
@@ -51,8 +60,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     return () => {
       authListener.subscription.unsubscribe();
+      clearTimeout(safetyTimer);
     };
-  }, []);
+  }, [isInitialized]);
 
   const login = (userData: any) => setUser(userData);
   const logout = async () => {
