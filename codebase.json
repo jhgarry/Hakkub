@@ -1,0 +1,1096 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+AGENTS.md
+CLAUDE.md
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+public/file.svg
+public/globe.svg
+public/next.svg
+public/vercel.svg
+public/window.svg
+README.md
+src/app/camp/page.tsx
+src/app/error.tsx
+src/app/favicon.ico
+src/app/globals.css
+src/app/hackatons/[slug]/page.tsx
+src/app/hackatons/page.tsx
+src/app/layout.tsx
+src/app/loading.tsx
+src/app/login/page.tsx
+src/app/not-found.tsx
+src/app/page.tsx
+src/app/profile/page.tsx
+src/app/rankings/page.tsx
+src/app/signup/page.tsx
+src/components/CreateTeamForm.tsx
+src/components/HackatonCard.tsx
+src/components/Navbar.tsx
+src/components/TeamCard.tsx
+src/context/AuthContext.tsx
+src/lib/supabase.ts
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="AGENTS.md">
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+</file>
+
+<file path="CLAUDE.md">
+@AGENTS.md
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  reactCompiler: true,
+};
+
+export default nextConfig;
+</file>
+
+<file path="package.json">
+{
+  "name": "my-hacker-hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.101.1",
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.37",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "tailwindcss": "^4",
+    "typescript": "^5.9.3"
+  }
+}
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="src/app/camp/page.tsx">
+"use client";
+import { useSearchParams } from 'next/navigation';
+
+export default function CampPage() {
+  const searchParams = useSearchParams();
+  const filterHackaton = searchParams.get('hackaton');
+
+  return (
+    <div className="max-w-7xl mx-auto p-8 flex flex-col md:flex-row gap-8">
+      {/* 팀 리스트 영역 */}
+      <div className="flex-1">
+        <h1 className="text-3xl font-bold mb-4">팀원 모집</h1>
+        {filterHackaton && (
+          <p className="mb-4 text-blue-600 font-medium">필터링: {filterHackaton} 해커톤 팀</p>
+        )}
+        
+        <div className="space-y-4">
+          {/* 가상의 팀 카드 */}
+          <div className="border rounded-xl p-6">
+            <h3 className="text-xl font-bold">어벤져스 팀</h3>
+            <p className="text-gray-600 mt-2">최고의 AI 서비스를 만듭니다.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs">모집중</span>
+              <span className="text-xs bg-gray-100 p-1 rounded">프론트엔드 1명</span>
+              <span className="text-xs bg-gray-100 p-1 rounded">디자이너 1명</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 팀 생성 폼 영역 */}
+      <aside className="w-full md:w-80 bg-gray-50 p-6 rounded-xl h-fit">
+        <h2 className="text-xl font-bold mb-4">팀 생성하기</h2>
+        <form className="space-y-4">
+          <input className="w-full p-2 border rounded" placeholder="팀명" required />
+          <textarea className="w-full p-2 border rounded" placeholder="소개" rows={3} required />
+          <div className="flex items-center gap-2">
+            <input type="checkbox" id="recruiting" />
+            <label htmlFor="recruiting" className="text-sm">모집 중 여부</label>
+          </div>
+          <input className="w-full p-2 border rounded" placeholder="모집 포지션 (예: 백엔드)" />
+          <input className="w-full p-2 border rounded" placeholder="연락 링크 (Open Kakao 등)" />
+          <button className="w-full bg-blue-600 text-white py-2 rounded font-bold hover:bg-blue-700 transition">생성하기</button>
+        </form>
+      </aside>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/error.tsx">
+'use client';
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
+      <h2 className="text-2xl font-bold text-red-600">문제가 발생했습니다!</h2>
+      {/* <p className="text-gray-500">{error.message || "알 수 없는 오류가 발생했습니다."}</p> */}
+      <p className="text-gray-500">{"시스템 관리자에게 문의하세요."}</p>
+      <button
+        onClick={() => reset()}
+        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+      >
+        다시 시도하기
+      </button>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/globals.css">
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+</file>
+
+<file path="src/app/hackatons/[slug]/page.tsx">
+export default function HackatonDetail({ params }: { params: { slug: string } }) {
+  const tabs = ["Overview", "Evaluation", "Schedule", "Prize", "Teams", "Submit", "Leaderboard"];
+
+  return (
+    <div className="max-w-7xl mx-auto p-8">
+      <header className="mb-8 border-b pb-8">
+        <h1 className="text-4xl font-extrabold">{params.slug.toUpperCase()}</h1>
+      </header>
+      
+      {/* 탭 메뉴 */}
+      <div className="flex border-b overflow-x-auto mb-8">
+        {tabs.map(tab => (
+          <button key={tab} className="px-6 py-3 font-medium hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600">
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <section className="min-h-[400px] bg-gray-50 rounded-xl p-8">
+        {/* 선택된 탭에 따른 내용 렌더링 영역 */}
+        <p className="text-gray-500">각 섹션의 상세 내용이 여기에 표시됩니다.</p>
+      </section>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/hackatons/page.tsx">
+import Link from 'next/link';
+export default function HackatonList() {
+  // 가상의 데이터
+  const hackatons = [
+    { id: 1, slug: 'ai-gen-2024', title: 'AI 생성형 해커톤', status: '진행중', tags: ['AI', 'Python'], start: '2024-04-01', end: '2024-04-03', participants: 120 }
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-8">해커톤 목록</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {hackatons.map((h) => (
+          <Link key={h.id} href={`/hackatons/${h.slug}`} className="border rounded-xl p-6 hover:shadow-lg transition">
+            <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">{h.status}</span>
+            <h2 className="text-xl font-bold mt-2">{h.title}</h2>
+            <div className="flex gap-2 mt-3">
+              {h.tags.map(t => <span key={t} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">{t}</span>)}
+            </div>
+            <div className="mt-4 text-sm text-gray-500">
+              <p>기간: {h.start} ~ {h.end}</p>
+              <p>참가자: {h.participants}명</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/layout.tsx">
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "../components/Navbar";
+import { AuthProvider } from '@/context/AuthContext';
+
+export const metadata: Metadata = {
+  title: "Hacker-Hub",
+  description: "해커톤의 모든 것",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ko">
+      <body>
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
+      </body>
+    </html>
+  );
+}
+</file>
+
+<file path="src/app/loading.tsx">
+export default function Loading() {
+  return (
+    <div className="max-w-7xl mx-auto p-8 space-y-6">
+      <div className="h-10 w-48 bg-gray-200 animate-pulse rounded" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i} className="h-64 bg-gray-200 animate-pulse rounded-xl" />
+        ))}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/login/page.tsx">
+'use client';
+import { useState } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+
+export default function LoginPage() {
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState(''); // [수정] pw 상태 추가
+  const { login } = useAuth();
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Supabase 로그인 시도 (가공된 이메일과 pw 변수 사용)
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: `${id}@hackerhub.com`,
+      password: pw, // 이제 pw 변수를 정상적으로 인식합니다.
+    });
+
+    if (error) return alert("로그인 실패: " + error.message);
+
+    // 로그인 성공 시 DB에서 프로필 정보 가져오기
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', data.user.id)
+      .single();
+
+    login(profile); // Context에 유저 정보 저장
+    router.push('/');
+  };
+
+  return (
+    <div className="max-w-md mx-auto mt-20 p-8 border rounded-2xl bg-white shadow-xl text-center">
+      <h1 className="text-2xl font-bold mb-6">로그인</h1>
+      <form onSubmit={handleLogin} className="space-y-4">
+        <input 
+          className="w-full p-3 border rounded" 
+          placeholder="아이디" 
+          value={id}
+          onChange={(e) => setId(e.target.value)} 
+        />
+        <input 
+          className="w-full p-3 border rounded" 
+          type="password" 
+          placeholder="비밀번호" 
+          value={pw}
+          onChange={(e) => setPw(e.target.value)} // [수정] setPw 연결
+        />
+        <button className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">
+          로그인
+        </button>
+      </form>
+      <div className="mt-4 text-sm text-gray-500">
+        계정이 없으신가요? <Link href="/signup" className="text-blue-600 underline">회원가입</Link>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/not-found.tsx">
+import Link from 'next/link';
+
+export default function NotFound() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6">
+      <div className="text-9xl font-bold text-gray-200">404</div>
+      <h2 className="text-2xl font-semibold">요청하신 페이지를 찾을 수 없습니다.</h2>
+      <p className="text-gray-500">데이터가 삭제되었거나 잘못된 경로입니다.</p>
+      <Link href="/" className="px-6 py-2 bg-gray-900 text-white rounded-lg">
+        메인으로 돌아가기
+      </Link>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/page.tsx">
+'use client';
+import Link from 'next/link';
+
+export default function MainPage() {
+  const sections = [
+    { title: '해커톤 탐색', desc: '현재 진행 중인 대회를 확인하세요.', link: '/hackatons', color: 'bg-blue-500' },
+    { title: '팀원 모집', desc: '함께 성장할 팀원을 찾아보세요.', link: '/camp', color: 'bg-indigo-500' },
+    { title: '랭킹 확인', desc: '최고의 해커톤 전사들을 만나보세요.', link: '/rankings', color: 'bg-purple-500' },
+  ];
+
+  return (
+    <main className="max-w-7xl mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {sections.map((s) => (
+        <Link key={s.link} href={s.link} className={`${s.color} p-10 rounded-2xl text-white hover:scale-105 transition-transform h-64 flex flex-col justify-end`}>
+          <h2 className="text-2xl font-bold">{s.title}</h2>
+          <p className="mt-2 opacity-90">{s.desc}</p>
+        </Link>
+      ))}
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/profile/page.tsx">
+'use client';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+
+export default function ProfilePage() {
+  const { user, logout } = useAuth();
+  const router = useRouter();
+
+  if (!user) {
+    return <div className="p-20 text-center text-gray-500">로그인이 필요한 페이지입니다.</div>;
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto mt-10 p-10 bg-white border rounded-3xl shadow-sm">
+      <h1 className="text-3xl font-bold mb-8">내 정보</h1>
+      <div className="space-y-6">
+        <div className="flex justify-between border-b pb-4">
+          <span className="text-gray-500 font-medium">아이디 / 닉네임</span>
+          <span className="font-bold">{user.nickname}</span>
+        </div>
+        <div className="flex justify-between border-b pb-4">
+          <span className="text-gray-500 font-medium">이메일</span>
+          <span>{user.email}</span>
+        </div>
+        <div className="flex justify-between border-b pb-4">
+          <span className="text-gray-500 font-medium">가입일</span>
+          <span>{user.joinedAt}</span>
+        </div>
+      </div>
+
+      <button 
+        onClick={() => { logout(); router.push('/'); }}
+        className="mt-10 w-full py-3 border border-red-200 text-red-500 rounded-xl font-bold hover:bg-red-50"
+      >
+        로그아웃
+      </button>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/rankings/page.tsx">
+'use client';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
+
+export default function Rankings() {
+  const [rankings, setRankings] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchRankings = async () => {
+      const { data } = await supabase
+        .from('profiles')
+        .select('nickname, points')
+        .order('points', { ascending: false })
+        .limit(10);
+      
+      if (data) setRankings(data);
+    };
+    fetchRankings();
+  }, []);
+
+  return (
+    <div className="max-w-4xl mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-8">실시간 유저 랭킹</h1>
+      {/* 데이터 매핑하여 테이블 출력 */}
+      {rankings.map((u, index) => (
+        <div key={index} className="flex justify-between p-4 border-b">
+          <span>{index + 1}위. {u.nickname}</span>
+          <span className="font-bold text-blue-600">{u.points}p</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/signup/page.tsx">
+'use client';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase'; // Supabase 클라이언트 임포트
+
+export default function SignupPage() {
+  const [id, setId] = useState(''); // 닉네임(아이디) 상태
+  const [pw, setPw] = useState(''); // 비밀번호 상태
+  const [isIdChecked, setIsIdChecked] = useState(false); // 중복 확인 완료 여부
+  const router = useRouter();
+
+  // 비밀번호 조건: 8자 이상, 특수문자 포함
+  const isPwValid = pw.length >= 8 && /[!@#$%^&*]/.test(pw);
+
+  // [기능 1] DB 기반 아이디(닉네임) 중복 확인
+  const handleIdCheck = async () => {
+    if (!id) return alert("아이디를 입력하세요.");
+
+    // profiles 테이블에서 해당 닉네임이 있는지 조회
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('nickname')
+      .eq('nickname', id);
+
+    if (error) {
+      console.error(error);
+      return alert("조회 중 오류가 발생했습니다.");
+    }
+
+    if (data && data.length > 0) {
+      alert("이미 존재하는 아이디입니다.");
+      setIsIdChecked(false);
+    } else {
+      alert("사용 가능한 아이디입니다.");
+      setIsIdChecked(true);
+    }
+  };
+
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isIdChecked) return alert("아이디 중복 확인이 필요합니다.");
+    if (!isPwValid) return alert("비밀번호 조건을 확인하세요.");
+    
+    // 1. Auth 계정 생성 (아이디를 이메일 형식으로 가공하여 저장)
+    const { data, error: authError } = await supabase.auth.signUp({
+      email: `${id}@hackerhub.com`,
+      password: pw,
+    });
+
+    if (authError) return alert(authError.message);
+
+    // 2. profiles 테이블에 유저 정보 추가
+    if (data.user) {
+      const { error: dbError } = await supabase.from('profiles').insert([
+        { id: data.user.id, nickname: id, email: data.user.email }
+      ]);
+      
+      if (dbError) return alert("프로필 생성 오류: " + dbError.message);
+      
+      alert("회원가입이 완료되었습니다! 로그인해 주세요.");
+      router.push('/login');
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto mt-20 p-8 border rounded-2xl bg-white shadow-xl">
+      <h1 className="text-2xl font-bold mb-6">회원가입</h1>
+      <form onSubmit={handleSignup} className="space-y-4">
+        <div>
+          <label className="block text-sm font-bold mb-1">아이디 (닉네임)</label>
+          <div className="flex gap-2">
+            <input 
+              className="flex-1 p-2 border rounded" 
+              value={id} 
+              onChange={(e) => {setId(e.target.value); setIsIdChecked(false);}} 
+              placeholder="사용할 아이디 입력"
+            />
+            <button type="button" onClick={handleIdCheck} className="px-3 py-1 bg-gray-800 text-white text-xs rounded hover:bg-black transition">
+              중복확인
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold mb-1">비밀번호</label>
+          <input 
+            type="password" 
+            className="w-full p-2 border rounded" 
+            placeholder="8자 이상, 특수문자 포함"
+            value={pw}
+            onChange={(e) => setPw(e.target.value)}
+          />
+          <p className={`text-xs mt-1 ${isPwValid ? 'text-green-600' : 'text-red-500'}`}>
+            {isPwValid ? '✓ 사용 가능한 비밀번호입니다.' : '⚠ 8자 이상, 특수문자를 포함해야 합니다.'}
+          </p>
+        </div>
+
+        <button 
+          className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold disabled:bg-gray-300 transition-colors" 
+          disabled={!isIdChecked || !isPwValid}
+        >
+          가입하기
+        </button>
+      </form>
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/CreateTeamForm.tsx">
+'use client';
+
+import { useState } from 'react';
+
+export default function CreateTeamForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    intro: '',
+    isRecruiting: true,
+    positions: '',
+    link: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("팀 생성 데이터:", formData);
+    alert("팀이 생성되었습니다!");
+  };
+
+  return (
+    <div className="bg-white border rounded-2xl p-6 shadow-lg sticky top-24">
+      <h2 className="text-xl font-bold mb-6">🚀 팀 만들기</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="text-xs font-bold text-gray-500 uppercase">팀명</label>
+          <input 
+            type="text" 
+            required
+            className="w-full mt-1 p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+            placeholder="팀 이름을 입력하세요"
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
+          />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-gray-500 uppercase">소개</label>
+          <textarea 
+            required
+            rows={3}
+            className="w-full mt-1 p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+            placeholder="팀의 목표와 분위기를 알려주세요"
+            onChange={(e) => setFormData({...formData, intro: e.target.value})}
+          />
+        </div>
+        <div className="flex items-center gap-2 py-2">
+          <input 
+            type="checkbox" 
+            id="recruiting" 
+            checked={formData.isRecruiting}
+            className="w-4 h-4 accent-blue-600"
+            onChange={(e) => setFormData({...formData, isRecruiting: e.target.checked})}
+          />
+          <label htmlFor="recruiting" className="text-sm font-medium">현재 팀원 모집 중</label>
+        </div>
+        <div>
+          <label className="text-xs font-bold text-gray-500 uppercase">모집 포지션</label>
+          <input 
+            type="text" 
+            className="w-full mt-1 p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+            placeholder="예: 프론트엔드, 디자이너"
+            onChange={(e) => setFormData({...formData, positions: e.target.value})}
+          />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-gray-500 uppercase">연락 링크</label>
+          <input 
+            type="url" 
+            required
+            className="w-full mt-1 p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+            placeholder="오픈카톡 또는 이메일"
+            onChange={(e) => setFormData({...formData, link: e.target.value})}
+          />
+        </div>
+        <button 
+          type="submit"
+          className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 shadow-md transition-all active:scale-95"
+        >
+          팀 생성하기
+        </button>
+      </form>
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/HackatonCard.tsx">
+import Link from 'next/link';
+
+interface HackatonProps {
+  slug: string;
+  title: string;
+  status: '진행중' | '마감' | '예정';
+  tags: string[];
+  startDate: string;
+  endDate: string;
+  participants: number;
+}
+
+export default function HackatonCard({ slug, title, status, tags, startDate, endDate, participants }: HackatonProps) {
+  const statusColor = status === '진행중' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600';
+
+  return (
+    <Link href={`/hackatons/${slug}`} className="group bg-white border rounded-xl overflow-hidden hover:shadow-xl transition-all">
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-4">
+          <span className={`px-2 py-1 rounded text-xs font-bold ${statusColor}`}>{status}</span>
+          <span className="text-xs text-gray-400 font-medium">참여자 {participants}명</span>
+        </div>
+        <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {tags.map(tag => (
+            <span key={tag} className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded">#{tag}</span>
+          ))}
+        </div>
+        <div className="text-sm text-gray-500 border-t pt-4">
+          <p>{startDate} ~ {endDate}</p>
+        </div>
+      </div>
+    </Link>
+  );
+}
+</file>
+
+<file path="src/components/Navbar.tsx">
+'use client';
+import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
+
+export default function Navbar() {
+  // useAuth가 가끔 초기화 시점에 null을 반환하는 것을 방지
+  const auth = useAuth();
+  const user = auth ? auth.user : null;
+
+  return (
+    <nav className="border-b sticky top-0 bg-white z-50 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="text-2xl font-extrabold text-blue-600">HACKER-HUB</Link>
+          <div className="hidden md:flex gap-6 text-sm font-bold text-gray-600">
+            <Link href="/hackatons" className="hover:text-blue-600">해커톤</Link>
+            <Link href="/camp" className="hover:text-blue-600">팀원 모집</Link>
+            <Link href="/rankings" className="hover:text-blue-600">랭킹</Link>
+          </div>
+        </div>
+
+        <div>
+          {user ? (
+            <Link href="/profile" className="px-4 py-2 bg-gray-100 rounded-lg font-bold text-sm">
+              내 정보
+            </Link>
+          ) : (
+            <Link href="/login" className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm">
+              로그인 / 회원가입
+            </Link>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
+}
+</file>
+
+<file path="src/components/TeamCard.tsx">
+interface TeamProps {
+  name: string;
+  description: string;
+  isRecruiting: boolean;
+  positions: string[];
+  contactUrl: string;
+}
+
+export default function TeamCard({ name, description, isRecruiting, positions, contactUrl }: TeamProps) {
+  return (
+    <div className="bg-white border rounded-xl p-6 shadow-sm hover:border-blue-300 transition-colors">
+      <div className="flex justify-between items-center mb-3">
+        <h3 className="text-lg font-bold text-gray-800">{name}</h3>
+        {isRecruiting ? (
+          <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-bold">모집중</span>
+        ) : (
+          <span className="text-xs bg-gray-100 text-gray-400 px-2 py-1 rounded-full font-bold">모집종료</span>
+        )}
+      </div>
+      <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
+      <div className="flex flex-wrap gap-1 mb-4">
+        {positions.map(pos => (
+          <span key={pos} className="text-[11px] border border-gray-200 px-2 py-0.5 rounded text-gray-500">{pos}</span>
+        ))}
+      </div>
+      <a 
+        href={contactUrl} 
+        target="_blank" 
+        className="block text-center w-full py-2 bg-gray-50 text-sm font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition"
+      >
+        연락하기
+      </a>
+    </div>
+  );
+}
+</file>
+
+<file path="src/context/AuthContext.tsx">
+'use client';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+
+// 초기값을 null이 아닌 빈 객체 형태로 구조를 잡아줍니다.
+const AuthContext = createContext<any>({ user: null, loading: true });
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const initAuth = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', session.user.id)
+            .single();
+          setUser(profile);
+        }
+      } catch (error) {
+        console.error("인증 로드 에러:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initAuth();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (session?.user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', session.user.id)
+          .single();
+        setUser(profile);
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+
+    return () => authListener.subscription.unsubscribe();
+  }, []);
+
+  const login = (userData: any) => setUser(userData);
+  const logout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+  };
+
+  // 중요: 로딩 중이라고 children을 숨기지 말고 항상 렌더링합니다.
+  return (
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+</file>
+
+<file path="src/lib/supabase.ts">
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+</file>
+
+</files>
