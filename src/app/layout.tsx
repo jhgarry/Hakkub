@@ -1,3 +1,9 @@
+// src/app/layout.tsx
+export const dynamic = 'force-dynamic'; // 정적 생성을 막고 매번 새로 불러옵니다.
+export const revalidate = 0;
+
+import './globals.css';
+// ... 나머지 import
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
