@@ -1,18 +1,19 @@
-// src/lib/supabase.ts
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// .trim()을 사용하여 혹시 모를 공백을 완전히 제거합니다.
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim() || '';
 
-// 배포 환경에서만 변수 존재 여부 출력 (값은 보안상 숨김)
 if (typeof window !== 'undefined') {
-  console.log("🛠️ Supabase URL Loaded:", !!supabaseUrl);
-  console.log("🛠️ Supabase Key Loaded:", !!supabaseAnonKey);
+  console.log("🌐 Supabase 초기화 시도 중...");
+  if (!supabaseUrl) console.error("❌ URL이 비어있습니다.");
+  if (!supabaseAnonKey) console.error("❌ Key가 비어있습니다.");
 }
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  // 이 에러가 뜬다면 Vercel Environment Variables 설정에 오타가 있거나 배포 시점에 누락된 것입니다.
-  console.error("❌ Supabase environment variables are missing!");
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true
+  }
+});
